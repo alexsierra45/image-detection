@@ -1,0 +1,174 @@
+{
+ "row": {
+  "id": "SMOKE_yolo11n",
+  "exp_id": "SMOKE",
+  "phase": "P0",
+  "change": "smoke test (5 % train, 2 \u00e9pocas)",
+  "family": "yolo",
+  "model": "yolo11n",
+  "pretrained": true,
+  "imgsz": 640,
+  "epochs": 2,
+  "actual_epochs": 2,
+  "best_epoch": 2,
+  "mAP50": 0.08477,
+  "mean_accuracy": 0.02614,
+  "mean_precision": 0.0144,
+  "mean_recall": 0.30607,
+  "AP_Small car": 0.16296,
+  "AP_Bus": 0.00015,
+  "AP_Truck": 0.00645,
+  "AP_Building": 0.16951,
+  "ul_mAP50": 0.09608,
+  "ul_mAP50_95": 0.03168,
+  "n_det": 1152000,
+  "infer_conf": 0.001,
+  "infer_max_det": 1500,
+  "time_train_s": 85,
+  "s_per_epoch": 42.3,
+  "time_pred_s": 9,
+  "gpu": "NVIDIA A100-PCIE-40GB",
+  "job": "1394523",
+  "notes": "",
+  "config": "{\"batch\": 16, \"data\": \"xview_det.yaml\", \"epochs\": 2, \"family\": \"yolo\", \"fraction\": 0.05, \"imgsz\": 640, \"infer\": {\"augment\": false, \"conf\": 0.001, \"iou\": 0.7, \"max_det\": 1500}, \"model\": \"yolo11n\", \"pretrained\": true, \"seed\": 0, \"tv_args\": {\"anchor_scales\": null, \"eval_every\": 2, \"lr\": 0.01, \"min_size\": null, \"momentum\": 0.9, \"warmup_iters\": 1000, \"weight_decay\": 0.0001, \"workers\": 10}, \"yolo_args\": {\"cache\": false, \"close_mosaic\": 10, \"cos_lr\": false, \"flipud\": 0.5, \"optimizer\": \"auto\", \"patience\": 100, \"workers\": 4}}"
+ },
+ "config": {
+  "family": "yolo",
+  "model": "yolo11n",
+  "pretrained": true,
+  "imgsz": 640,
+  "epochs": 2,
+  "batch": 16,
+  "seed": 0,
+  "fraction": 0.05,
+  "data": "xview_det.yaml",
+  "yolo_args": {
+   "optimizer": "auto",
+   "cos_lr": false,
+   "close_mosaic": 10,
+   "patience": 100,
+   "flipud": 0.5,
+   "workers": 4,
+   "cache": false
+  },
+  "tv_args": {
+   "lr": 0.01,
+   "momentum": 0.9,
+   "weight_decay": 0.0001,
+   "warmup_iters": 1000,
+   "workers": 10,
+   "min_size": null,
+   "anchor_scales": null,
+   "eval_every": 2
+  },
+  "infer": {
+   "conf": 0.001,
+   "iou": 0.7,
+   "max_det": 1500,
+   "augment": false
+  }
+ },
+ "metrics": {
+  "AP_Small car": 0.1629618170762151,
+  "recall_Small car": 0.6345172209983343,
+  "precision_Small car": 0.0172764658808452,
+  "AP_Bus": 0.00015222872365729508,
+  "recall_Bus": 0.006688963210702341,
+  "precision_Bus": 0.0018315018315018315,
+  "AP_Truck": 0.0064545650247309905,
+  "recall_Truck": 0.19447004608294932,
+  "precision_Truck": 0.011576868210249095,
+  "AP_Building": 0.16951303440514284,
+  "recall_Building": 0.6946914274995311,
+  "precision_Building": 0.04132714664809768,
+  "mAP50": 0.08477041130743657,
+  "mean_accuracy": 0.026138985696777153,
+  "mean_precision": 0.01440239651413876,
+  "mean_recall": 0.3060735315583034,
+  "n_det": 1152000,
+  "n_gt": 46949,
+  "confusion": [
+   [
+    0,
+    671722,
+    2180,
+    18015,
+    429542
+   ],
+   [
+    6802,
+    11809,
+    0,
+    0,
+    0
+   ],
+   [
+    594,
+    0,
+    4,
+    0,
+    0
+   ],
+   [
+    874,
+    0,
+    0,
+    211,
+    0
+   ],
+   [
+    8138,
+    0,
+    0,
+    0,
+    18517
+   ]
+  ]
+ },
+ "history": [
+  {
+   "epoch": 1.0,
+   "time": 18.9212,
+   "train/box_loss": 2.4395,
+   "train/cls_loss": 3.49759,
+   "train/dfl_loss": 1.80725,
+   "metrics/precision(B)": 0.35049,
+   "metrics/recall(B)": 0.16257,
+   "metrics/mAP50(B)": 0.05901,
+   "metrics/mAP50-95(B)": 0.01921,
+   "val/box_loss": 2.50832,
+   "val/cls_loss": 6.41616,
+   "val/dfl_loss": 1.76869,
+   "lr/pg0": 0.00119318,
+   "lr/pg1": 0.00119318,
+   "lr/pg2": 0.00119318
+  },
+  {
+   "epoch": 2.0,
+   "time": 36.9579,
+   "train/box_loss": 2.28459,
+   "train/cls_loss": 2.09723,
+   "train/dfl_loss": 1.55279,
+   "metrics/precision(B)": 0.11707,
+   "metrics/recall(B)": 0.33242,
+   "metrics/mAP50(B)": 0.09608,
+   "metrics/mAP50-95(B)": 0.03168,
+   "val/box_loss": 2.38047,
+   "val/cls_loss": 11.3003,
+   "val/dfl_loss": 1.48344,
+   "lr/pg0": 0.00063125,
+   "lr/pg1": 0.00063125,
+   "lr/pg2": 0.00063125
+  }
+ ],
+ "slurm": {
+  "SLURM_JOB_ID": "1394523",
+  "SLURM_JOB_NAME": "SMOKE",
+  "SLURM_JOB_PARTITION": "debug-gpu",
+  "SLURM_JOB_GPUS": "3",
+  "SLURM_CPUS_PER_TASK": "4",
+  "host": "r2n3.hpc.lan",
+  "gpu": "NVIDIA A100-PCIE-40GB"
+ },
+ "weights": "/media/beegfs/home/y404/y404034/image-detection/experiments/runs/SMOKE_yolo11n/weights/best.pt"
+}

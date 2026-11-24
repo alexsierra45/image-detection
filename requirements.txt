@@ -1,0 +1,18 @@
+# Entorno del proyecto en Magerit: módulo Python/3.13.5-GCCcore-14.3.0 + venv (CHG-001).
+# torch con runtime CUDA 12.4: el driver de los nodos GPU es 545 (CUDA 12.3) y funciona por compatibilidad de
+# versiones menores de CUDA 12 (como TF 2.21 con CUDA 12.5/12.9). No hay torchvision cu121 para Python 3.13 (ISS-002).
+--extra-index-url https://download.pytorch.org/whl/cu124
+torch==2.6.0+cu124
+torchvision==0.21.0+cu124
+ultralytics==8.4.218
+rasterio==1.4.4
+scikit-learn==1.7.2
+matplotlib==3.10.9
+pandas==2.3.3
+pyyaml
+jinja2==3.1.6
+filelock
+tqdm
+ipykernel
+nbclient==0.11.0
+nbformat

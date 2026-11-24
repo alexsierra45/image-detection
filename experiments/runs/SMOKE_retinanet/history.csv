@@ -1,0 +1,2 @@
+epoch,lr,train_bbox_regression,train_classification,train_loss,train_time_s,val_bbox_regression,val_classification,val_loss,val_mAP50,val_mean_precision,val_mean_recall
+1,0.0,0.34106540750054753,0.8295840442180633,1.1706494517186108,8.9,0.35756887260236236,0.6803117112109536,1.0378805838133158,0.059771672759396,0.21285698754855628,0.2648981836869629

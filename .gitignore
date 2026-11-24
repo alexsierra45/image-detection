@@ -221,3 +221,24 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# ==== image-detection (CHG-001) ====
+# Enlaces simbólicos al dataset (PROJECT, solo lectura) y a la caché en SCRATCH (sin barra final: son symlinks)
+xview_detection
+cache
+# Pesos, predicciones y envíos: pesados y regenerables
+*.pt
+*.pth
+prediction.json
+prediction.zip
+submissions/
+experiments/preds/
+experiments/runs/*/weights/
+experiments/*.lock
+# Documentación con copyright: se queda en local
+references/*.pdf
+# Claude Code: ajustes personales
+.claude/settings.local.json
+# Paquetes de Overleaf (se regeneran con make bundle)
+reports/*/*.zip
+reports/*.zip

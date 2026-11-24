@@ -1,0 +1,55 @@
+The following modules were not unloaded:
+  (Use "module --force purge" to unload all):
+
+  1) apps/avx512-2025
+
+The following have been reloaded with a version change:
+  1) apps/avx512-2025 => apps/2021
+
+host=r2n3.hpc.lan job=1394522 gpus=0
+Tue Nov 24 13:31:15 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 615.71.10              KMD Version: 615.71.10     CUDA UMD Version: 13.4     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-PCIE-40GB          On  |   00000000:D8:00.0 Off |                    0 |
+| N/A   29C    P0             33W /  250W |       0MiB /  40960MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+python 3.13.5 | torch 2.6.0+cu124 | torchvision 0.21.0+cu124 | cuda runtime 12.4 | cudnn 90100
+GPU: NVIDIA A100-PCIE-40GB | capability (8, 0)
+20 conv 3x3 (16x3x640x640 -> 64): 0.395 s
+autocast fp16 ok: torch.float16
+torchvision.ops.nms en GPU ok: 692 cajas
+Traceback (most recent call last):
+  File "rasterio/_base.pyx", line 311, in rasterio._base.DatasetBase.__init__
+  File "rasterio/_base.pyx", line 222, in rasterio._base.open_dataset
+  File "rasterio/_err.pyx", line 359, in rasterio._err.exc_wrap_pointer
+rasterio._err.CPLE_OpenFailedError: /media/beegfs/home/y404/y404034/image-detection/xview_detection/xview_detection/xview_train/100_05d8b46a-6210-405f-b41b-0928921a391b.tif: No such file or directory
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/media/beegfs/home/y404/y404034/image-detection/tools/gpu_check.py", line 36, in <module>
+    ref = load_geoimage(f)                       # RGB, HxWx3
+  File "/media/beegfs/home/y404/y404034/image-detection/xview_det.py", line 34, in load_geoimage
+    with rasterio.open(path, 'r') as src:
+         ~~~~~~~~~~~~~^^^^^^^^^^^
+  File "/media/beegfs/home/y404/y404034/image-detection/.venv/lib/python3.13/site-packages/rasterio/env.py", line 463, in wrapper
+    return f(*args, **kwds)
+  File "/media/beegfs/home/y404/y404034/image-detection/.venv/lib/python3.13/site-packages/rasterio/__init__.py", line 356, in open
+    dataset = DatasetReader(path, driver=driver, sharing=sharing, **kwargs)
+  File "rasterio/_base.pyx", line 313, in rasterio._base.DatasetBase.__init__
+rasterio.errors.RasterioIOError: /media/beegfs/home/y404/y404034/image-detection/xview_detection/xview_detection/xview_train/100_05d8b46a-6210-405f-b41b-0928921a391b.tif: No such file or directory
+srun: error: r2n3: task 0: Exited with exit code 1

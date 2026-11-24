@@ -1,0 +1,53 @@
+The following modules were not unloaded:
+  (Use "module --force purge" to unload all):
+
+  1) apps/avx512-2025
+
+The following have been reloaded with a version change:
+  1) apps/avx512-2025 => apps/2021
+
+host=r2n3.hpc.lan job=1394524 gres=3 commit=f1224ea start=2026-11-24T13:33:45+01:00
+cmd: python sweep.py smoke_tv
+name, memory.total [MiB], driver_version
+NVIDIA A100-PCIE-40GB, 40960 MiB, 615.71.10
+=== SMOKE_retinanet (SMOKE) smoke test torchvision (5 % train, 1 época)
+{
+ "family": "tv",
+ "model": "retinanet_r50_fpn_v2",
+ "pretrained": true,
+ "imgsz": 640,
+ "epochs": 1,
+ "batch": 4,
+ "seed": 0,
+ "fraction": 0.05,
+ "data": "xview_det.yaml",
+ "yolo_args": {
+  "optimizer": "auto",
+  "cos_lr": false,
+  "close_mosaic": 10,
+  "patience": 100,
+  "flipud": 0.5,
+  "workers": 10,
+  "cache": "ram"
+ },
+ "tv_args": {
+  "lr": 0.01,
+  "momentum": 0.9,
+  "weight_decay": 0.0001,
+  "warmup_iters": 1000,
+  "workers": 4,
+  "min_size": null,
+  "anchor_scales": null,
+  "eval_every": 1
+ },
+ "infer": {
+  "conf": 0.001,
+  "iou": 0.7,
+  "max_det": 1500,
+  "augment": false
+ }
+}
+epoch 1/1 {'epoch': 1, 'lr': 0.0, 'train_time_s': 8.9, 'train_classification': 0.8296, 'train_bbox_regression': 0.3411, 'train_loss': 1.1706, 'val_classification': 0.6803, 'val_bbox_regression': 0.3576, 'val_loss': 1.0379, 'val_mAP50': 0.0598, 'val_mean_recall': 0.2649, 'val_mean_precision': 0.2129}
+VAL SMOKE_retinanet: mAP50 0.0392 | mAcc 0.0223 | mPrec 0.2115 | mRec 0.2984 | AP {'Small car': 0.0901, 'Bus': 0.0, 'Truck': 0.0017, 'Building': 0.0651}
+RUN DONE SMOKE_retinanet in 37 s
+end=2026-11-24T13:34:26+01:00 exit=0
